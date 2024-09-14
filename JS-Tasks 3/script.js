@@ -52,7 +52,6 @@ function firstOfArray(array){
     return array[0];
 }
 
-
 /*
 5
 Create a function called lastOfArray
