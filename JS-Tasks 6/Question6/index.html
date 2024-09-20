@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    .box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+}
+
+@keyframes changeColor {
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: 400px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="box" id="myBox" onclick="beginAnimation()"></div>
+
+    <script>
+
+        let animatedElement = document.getElementById("myBox");
+
+        function beginAnimation() {
+            animatedElement.style.animation = "changeColor 4s 3";
+        }
+
+        animatedElement.addEventListener("animationstart" , startAnimation);
+        animatedElement.addEventListener("animationiteration" , repeateAnimation);
+        animatedElement.addEventListener("animationend" , endAnimation);
+
+        function startAnimation(){
+            this.style.backgroundColor = "yellow";
+        }
+
+        function repeateAnimation(){
+            this.style.backgroundColor = "blue";
+        }
+
+        function endAnimation(){
+            this.style.backgroundColor = "green";
+        }
+
+    </script>
+
+</body>
+
+</html>

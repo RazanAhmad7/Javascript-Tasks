@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question2</title>
+</head>
+<body>
+    <label for="menu">Choose a country</label>
+    <select id="menu" onchange="changePic()"> 
+        <option value="Syria">Syria</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Palestine">Palestine</option>
+    </select>
+
+    
+        <div>
+            <img src="" alt="" id="image">
+        </div>
+    
+
+    <script>
+      
+      function changePic() {
+        let val = document.getElementById("menu").value;
+        switch (val) {
+        case "Jordan":
+            document.getElementById("image").src = "/JS-Tasks 6/Question2/assets/Jordan.png";
+            break;
+        case "Syria":
+            document.getElementById("image").src = "/JS-Tasks 6/Question2/assets/Syria.png";
+            break;
+        case "Palestine":
+            document.getElementById("image").src = "/JS-Tasks 6/Question2/assets/Palestine.png";
+            break;
+    }
+
+    }
+    </script>
+</body>
+</html>

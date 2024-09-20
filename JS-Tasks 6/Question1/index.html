@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Events</title>
+</head>
+<body>
+    <div id="box" style="width: fit-content; padding: 10px; border: 1px solid black; height: fit-content;" 
+    onmouseover="hoveringBox(this)"
+    onmouseout="outHoveringBox(this)"
+    >Hello World!</div>
+    
+
+    <script>
+        function hoveringBox(id){
+            document.getElementById("box").style.backgroundColor = "yellow";
+            document.getElementById("box").style.fontWeight = "bold";
+        }
+
+        function outHoveringBox(id){
+            document.getElementById("box").style.backgroundColor = "white";
+            document.getElementById("box").style.fontWeight = "500";  
+        }
+    </script>
+</body>
+</html>

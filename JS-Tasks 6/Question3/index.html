@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for=""> Password (Min 6 characters) :
+            <input type="password" id="pass" oninput="validate()">
+        </label>
+        <label id="message" style="color: red;"></label>
+        <br>
+        <br>
+        <label for=""> Repeated Password :
+            <input type="password" id="repeatedPass" oninput="matching()">
+        </label>
+        <label id="message2" style="color: red;"></label> 
+        <input type="submit" id="submit" style="display: none;">
+    </form>
+    <script>
+
+        function validate(){
+            let text = document.getElementById("pass").value;
+            if(text.length <= 6)
+        {
+            document.getElementById("message").innerHTML  = "Too short!!";
+        }
+        else{
+            document.getElementById("message").innerHTML  = "";
+        }
+        }
+
+        function matching(){
+            let text = document.getElementById("pass").value;
+            let text2 = document.getElementById("repeatedPass").value;
+            if(text !== text2)
+        {
+            document.getElementById("message2").innerHTML  = "passwords do not match";
+           
+        }
+        else{
+            document.getElementById("message2").innerHTML  = "";
+            document.getElementById("submit").style.display = "block";
+        }
+        }
+        
+    </script>
+</body>
+</html>

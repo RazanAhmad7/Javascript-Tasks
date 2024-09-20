@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+    <select id="fontFamily" onchange="changeFamily()">
+        <option value='"Lucida Console", "Courier New", monospace'>Lucida</option>
+        <option value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
+        <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe</option>
+    </select>
+
+    <select id="fontSize" onchange="changeSize()">
+        <option value="16pt">16</option>
+        <option value="18pt">18</option>
+        <option value="24pt">24</option>
+    </select>
+
+    <label for="italic">Italic <input type="checkbox" id="italic" value="italic" onclick="styled(this)"></label>
+    <label for="bold">Bold <input type="checkbox" id="bold" onclick="styled(this)"></label>
+    <label for="underline">Underline <input type="checkbox" id="underline" onclick="styled(this)"></label>
+    <br>
+    <br>
+    <input type="text" id="enteredText" style="width: 30%; height: 10%;">
+    </form>
+
+    
+    <script>
+        function changeFamily(){
+            let font = document.getElementById("fontFamily").value ;
+            document.getElementById("enteredText").style.fontFamily = font;
+        }
+        function changeSize(){
+            let size = document.getElementById("fontSize").value ;
+            document.getElementById("enteredText").style.fontSize = size;
+        }
+
+        function styled(element){
+            let choosedStyleID = element.id;
+
+            switch(choosedStyleID){
+                case "italic":
+                     document.getElementById("enteredText").style.fontStyle = document.getElementById("italic").checked ? "italic" : "normal";
+                     break;
+                case "bold":
+                     document.getElementById("enteredText").style.fontWeight = document.getElementById("bold").checked ? "bold" : "normal";
+                     break;
+                case "underline":
+                     document.getElementById("enteredText").style.textDecoration = document.getElementById("underline").checked ? "underline" : "none";
+                     break;
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>
