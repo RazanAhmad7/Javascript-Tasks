@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh ;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .imagesDiv{
+            border: 10px outset rgb(228, 215, 215);
+        }
+         /* Styling for the buttons */
+         button {
+            padding: 10px 20px;
+            margin: 20px 10px;
+            background-color: #706974;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+ 
+        button:hover {
+            background-color: #242127;
+        }
+        img{
+            object-fit: cover;
+        }
+ 
+    </style>
+</head>
+
+
+<body>
+<div class="imagesDiv">
+    <div class="images">
+      <img src="image1.jpg" width="300px" height="200px">    
+    </div>
+
+    <div class="images">
+        <img src="image2.jpg" width="300px" height="200px">    
+    </div>
+
+      <div class="images">
+        <img src="image3.jpg" width="300px" height="200px">    
+    </div>
+
+    <div class="images">
+        <img src="image4.jpg" width="300px" height="200px">    
+    </div>
+</div>
+<div class="buttonsDiv">
+    <div class="buttons">
+        <button class="pervious" onclick="nextImage(-1)">Prev</button>
+        <button class="next" onclick="nextImage(1)">Next</button>
+    </div>
+</div>
+    <script>
+        // auto navigation
+        // let index = 0;
+        // showImages();
+       
+        // function showImages() {
+        //     let images = document.getElementsByClassName("images");
+        //     for (let i = 0; i < images.length; i++) {
+        //         images[i].style.display = "none"
+        //     }
+        //     index++;
+        //     if(index > images.length) { index = 1 }
+        //     images[index-1].style.display = "block";
+
+        //     setTimeout(showImages , 2000);
+        // }
+
+
+        // manual navigation
+        let currentImage = 1;
+
+        showImages2(currentImage);
+
+        function nextImage(n){
+            showImages2(currentImage += n);
+        }
+
+        function showImages2(n){
+            let images = document.getElementsByClassName("images");
+
+            if(n > images.length) {currentImage = 1;}
+            if(n < 1 ) {currentImage = images.length;}
+
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "none"
+            }
+
+            images[currentImage-1].style.display = "block";
+        }
+
+        
+    </script>
+</body>
+</html>
