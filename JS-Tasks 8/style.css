@@ -74,3 +74,9 @@ button[type="submit"]:hover {
     background-color: #4cae4c;
 }
 
+.errors{
+    color: red;          
+    font-size: 12px;     
+    margin-left: 10px;
+    display: block;
+}

@@ -1,0 +1,86 @@
+/* Style for the entire container */
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #d4a5d9; /* Light lavender border */
+    border-radius: 10px;
+    background-color: #ffeef7; /* Soft blush pink background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style for form inputs */
+form input[type="text"], form select, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d4a5d9; /* Light lavender border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fdf3f9; /* Light background for input fields */
+    color: #4c3f54; /* Dark soft purple text */
+    box-sizing: border-box;
+}
+
+/* Style for textarea */
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Style for labels (e.g., Gender and Programming Language) */
+form label.gender, form label.progLang {
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+    color: #663a82; /* Deep lavender for labels */
+}
+
+/* Style for gender select dropdown */
+form select {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+/* Style for checkboxes */
+form label {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    font-size: 14px;
+    color: #4c3f54; /* Softer dark purple for checkbox labels */
+}
+
+form label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style for the submit button */
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #e0aaff; /* Soft lavender purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect for submit button */
+form input[type="submit"]:hover {
+    background-color: #bf77e5; /* Darker lavender on hover */
+}
+
+/* Add some spacing between form elements */
+form input, form select, form textarea, form label {
+    margin-bottom: 15px;
+}
+
+/* Make the form responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

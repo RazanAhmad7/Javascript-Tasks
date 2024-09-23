@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="myForm">
+            <input type="text" class="name" id="name" placeholder="Your Name">
+            <input type="text" class="age" id="age" placeholder="Your Age">
+            <label class="gender">Your Gender: </label>
+            <select name="gender" id="gender">
+                <option value="female" id="female">Female</option>
+                <option value="male" id="male">Male</option>
+            </select>
+            <textarea name="desc" id="desc" class="desc" placeholder="Breif description about you"></textarea>
+            <input type="text" id="major" class="major" placeholder="Your Major">
+            <input type="text" id="uni" class="uni" placeholder="Your University">
+            <label class="progLang">Programming Language you prefer:</label>
+            <label for="lang1"> 
+                <input name="lang1" type="checkbox" id="lang1" value="Java" class="checkbox">Java
+            </label>
+            <label for="lang2"> 
+                <input name="lang2" type="checkbox" id="lang2" value="Python" class="checkbox">Python
+            </label>
+            <label for="lang3"> 
+                <input name="lang3" type="checkbox" id="lang3" value="JS" class="checkbox">JS
+            </label>
+            <label for="lang4"> 
+                <input name="lang4" type="checkbox" id="lang4" value="C#" class="checkbox">C#
+            </label>
+
+            <input type="submit" onclick="validate()">
+
+        </form>
+    </div>
+
+    <script>
+
+
+       const form = document.getElementById("myForm");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); 
+        });
+
+
+        var users = [];
+        
+        function validate(){
+
+        var name = document.getElementById("name");
+        var age = document.getElementById("age");
+        var desc = document.getElementById("desc");
+        var major = document.getElementById("major");
+        var uni = document.getElementById("uni");
+        var Languages = document.querySelectorAll(".checkbox");
+        var gender = document.getElementById("gender") ;
+
+        
+        var checkedLang = [];
+        Languages.forEach(element => {
+            if(element.checked)
+        {
+            checkedLang.push(element.value);
+        }
+    });
+        let user = {
+            name: name.value,
+            age: age.value,
+            gender: gender.value,
+            description: desc.value,
+            major: major.value,
+            university: uni.value,
+            favoriteLanguages: checkedLang,
+        }
+
+            jsonUser = JSON.stringify(user);
+            users.push(jsonUser);
+            localStorage.setItem('users', users);
+       
+    }
+
+
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Idea Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Project Idea Submission</h1>
+        <form id="projectForm">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" class="input-field" placeholder="Project Title" required>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" class="input-field" rows="4" placeholder="Brief description of the project" required></textarea>
+
+            <label for="userTypes">User Types:</label>
+            <textarea id="userTypes" class="input-field" rows="3" placeholder="Types of users for this project" required></textarea>
+
+            <label for="technology">Technology Used:</label>
+            <textarea id="technology" class="input-field" rows="3" placeholder="Technologies (e.g., React, Node.js)" required></textarea>
+
+            <button type="submit" class="submit-btn" onclick="storeData()">Submit Project</button>
+        </form>
+    </div>
+
+    <script>
+        function storeData(){
+            
+            const form = document.getElementById("projectForm");
+            form.addEventListener("submit", (event) => {
+            event.preventDefault(); 
+            });
+
+            var subject = document.getElementById("subject");
+            var desc = document.getElementById("description");
+            var userTypes = document.getElementById("userTypes");
+            var technology = document.getElementById("technology");
+
+            var projects = [];
+
+            let project = {
+            subject: subject.value,
+            description: desc.value,
+            userTypes: userTypes.value,
+            technology: technology.value,
+           
+        }
+
+            jsonProject = JSON.stringify(project);
+            projects.push(jsonProject);
+            sessionStorage.setItem('Project', projects);
+        }
+    </script>
+
+</body>
+</html>

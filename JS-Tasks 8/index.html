@@ -6,182 +6,59 @@
     <title>Registration Form</title>
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        .errors{
-            color: red;          
-            font-size: 12px;     
-            margin-left: 10px;
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <div class="form-container">
         <h2>Registration Form</h2>
-        <form action="#" method="post">
+        <form id="myForm">
 
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" oninput="checkName(this)" required>
+            <label>First Name</label>
+            <input type="text" id="firstName" oninput="checkName(this)" required>
             <span class="errors" id="fName-error"></span>
 
 
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" oninput="checkName(this)" required >
+            <label>Last Name</label>
+            <input type="text" id="lastName" oninput="checkName(this)" required >
             <span class="errors" id="lName-error"></span>
 
 
-            <label for="birthDate">Birth Date</label>
-            <input type="text" id="birthDate" name="birthDate" oninput="check(this)" required>
+            <label >Birth Date</label>
+            <input type="text" id="birthDate"  >
             <span class="errors" id="BD-error"></span>
 
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" oninput="check(this)" required>
+            <label >Email</label>
+            <input type="text" id="email"  >
             <span class="errors" id="email-error"></span>
             
 
-            <label for="confirmEmail">Confirm Email</label>
-            <input type="text" id="confirmEmail" name="confirmEmail" oninput="emailConfirmation()"  required>
+            <label>Confirm Email</label>
+            <input type="text" id="confirmEmail"  >
             <span class="errors" id="email-conf-error"></span>
           
-
           
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password" oninput="check(this)" required>
+            <label >Password</label>
+            <input type="text" id="password"  >
             <span class="errors" id="pass-error"></span>
             
-
           
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="text" id="confirmPassword" name="confirmPassword" oninput="passConfirmation()" required>
+            <label>Confirm Password</label>
+            <input type="text" id="confirmPassword"   >
             <span class="errors" id="pass-conf-error"></span>
 
             
-
-
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" oninput="check(this)" required>
+            <label >Phone Number</label>
+            <input type="tel" id="phone" >
             <span class="errors" id="num-error"></span>
 
 
+            <input type="submit" onclick="storeData()">
 
-            <button type="submit">Register</button>
+            
         </form>
     </div>
 
-    <script>
-        var firstName = document.getElementById("firstName");
-        var lastName = document.getElementById("lastName");
-        var birthDate = document.getElementById("birthDate");
-        var email = document.getElementById("email");
-        var confirmEmail = document.getElementById("confirmEmail");
-        var password = document.getElementById("password");
-        var confirmPassword = document.getElementById("confirmPassword");
-        var phone = document.getElementById("phone");
-
-        
-        function checkName(element) {
-
-        var nameRegex = /^[A-Za-z]{6,30}$/;
-        
-        let error = document.getElementById("fName-error");
-        let error2 = document.getElementById("lName-error");
-
-        var NameValue = element.value;
-        
-        error.innerHTML = " ";
-        error2.innerHTML = " ";
-
-        if(!nameRegex.test(NameValue)){
-            switch(element.id)
-            {
-                case "firstName" : {
-                    error.innerHTML = "Name should be at least 6 characters and should not has a special characters or numbers"
-                    break;
-                }
-
-                case "lastName" : {
-                    error2.innerHTML = "Name should be at least 6 characters and should not has a special characters or numbers"
-                    break;
-                }
-            }
-        }
-        }
-
-        function emailConfirmation(){
-            let email = document.getElementById('email').value;
-            let confError = document.getElementById('email-conf-error');
-            let email2 = confirmEmail.value;
-            confError.innerHTML = "";
-            if (email !== email2) {
-                confError.innerHTML = "Emails are not matched";
-            }
-        }
-
-        function passConfirmation(){
-            let pass = document.getElementById('password').value;
-            let passError = document.getElementById('pass-conf-error');
-            let pass2 = confirmPassword.value;
-            passError.innerHTML = "";
-            if (pass !== pass2) {
-                passError.innerHTML = "Passwords are not matched";
-            }
-        }
-
-
-        function check(element){
-
-            var birthDateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$/;
-            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            var passwordRegex = /^(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,32}$/;
-            var phoneRegex = /^\d{10}$/;
-
-
-            let DBError = document.getElementById("BD-error");
-            let emailError = document.getElementById("email-error");
-            let passError = document.getElementById("pass-error");
-            let numError = document.getElementById("num-error");
-
-            var elementValue = element.value;
-
-            DBError.innerHTML = " ";
-            emailError.innerHTML = " ";
-            passError.innerHTML = " ";
-            numError.innerHTML = " ";
-
-            switch(element.id)
-            {
-                case "birthDate" : {
-                    if(!birthDateRegex.test(elementValue)){
-                    DBError.innerHTML = "Please enter a valid date";
-                    }
-                    break;
-                }
-
-                case "email" : {
-                    if(!emailRegex.test(elementValue)){
-                    emailError.innerHTML = "Please enter a valid email";
-                    }
-                    break;
-                }
-
-                case "password" : {
-                    if(!passwordRegex.test(elementValue)){
-                    passError.innerHTML = "Please enter a valid Password, starts with a capital letter, contains at least two numbers and has one special character.";
-                    }
-                    break;
-                }
-
-                case "phone" : {
-                    if(!phoneRegex.test(elementValue)){
-                    numError.innerHTML = "Phone number should consist of 10 digits";
-                    }
-                    break;
-                }   
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
