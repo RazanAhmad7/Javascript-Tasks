@@ -124,11 +124,16 @@ form.addEventListener("submit", (event) => {
             }
         }
 
-       var users = [];
+      let existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+            if (!Array.isArray(existingUsers)) { // Check if it's an array
+                existingUsers = []; // Initialize as an empty array if not
+            }
        function storeData()
        {
          if(validatInputs()){
-            let user = {
+            // Get existing users from local storage or initialize an empty array
+           
+            const user = {
                 FirstName :firstName.value,
                 LastName :lastName.value,
                 Password :password.value,
@@ -136,12 +141,33 @@ form.addEventListener("submit", (event) => {
                 PhoneNumber :phone.value,       
             }
 
-            jsonUser = JSON.stringify(user);
-            users.push(jsonUser);
-            localStorage.setItem('users' , users );
-        
+            existingUsers.push(user);
+            localStorage.setItem('users', JSON.stringify(existingUsers));
+
+            window.location.href = "login.html";
             }
              else {
                 console.log("error");
              }
+        }
+
+        let lEmail = document.getElementById("loginEmail");
+        let lPass = document.getElementById("loginPassword");
+        function login(){
+          
+            for (let key in existingUsers){
+                if(lEmail.value === existingUsers[key].Email && lPass.value === existingUsers[key].Password){
+                  console.log(existingUsers[key].Email);
+                  console.log(existingUsers[key].Password);
+                  window.location.href="welcome.html"
+                }
+              
+                else{
+                    let errorMsg = document.getElementById("login-error");
+                    errorMsg.innerHTML = "Incorrect Password/Email"
+                }
+                
+            }
+
+
         }

@@ -14,7 +14,7 @@ body {
 
 .form-container {
     background-color: white;
-    width: 40%;
+    width: 30%; /* Adjusted for a smaller login form */
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -31,7 +31,7 @@ label {
     color: rgb(11, 132, 122);
 }
 
-input[type="text"], input[type="password"], input[type="tel"] {
+input[type="email"], input[type="password"] {
     margin-top: 10px;
     padding: 12px;
     border-radius: 5px;
@@ -63,20 +63,31 @@ input[type="submit"]:hover {
     font-size: 14px;
     margin-top: 5px;
 }
-.message {
+
+/* Adding styles for links and checkbox */
+.checkbox {
     margin-top: 20px;
+}
+
+.checkbox label {
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+}
+
+.links {
+    margin-top: 15px;
     font-size: 16px;
     color: rgb(11, 132, 122);
     text-align: center;
 }
 
-.message a {
-    color: rgb(8, 108, 100);
+.links a {
     text-decoration: none;
+    color: rgb(11, 132, 122);
     font-weight: bold;
 }
 
-.message a:hover {
-    color: rgb(95, 198, 166);
-    text-decoration: underline;
+.links a:hover {
+    color: rgb(8, 108, 100);
 }

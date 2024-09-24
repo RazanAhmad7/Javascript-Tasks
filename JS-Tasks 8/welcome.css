@@ -1,0 +1,35 @@
+.welcome-container {
+    background-color: rgba(247, 243, 243, 0.9); /* Slightly different background */
+    width: 40%;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centered text for better appearance */
+    margin: auto; /* Center the container in the middle of the page */
+    margin-top: 100px; /* Space from the top of the page */
+}
+
+.welcome-container h1 {
+    font-size: 68px; /* Increased font size for the header */
+    color: rgb(11, 132, 122); /* Keep the main color */
+    margin-bottom: 20px; /* Space below the header */
+}
+.welcome-container p {
+    font-size: 18px; /* Font size for the message */
+    color: gray; /* Slightly lighter gray for the message */
+    margin-bottom: 30px; /* Space below the paragraph */
+}
+
+.logout-link {
+    display: inline-block; /* Makes the link behave like a button */
+    padding: 10px 20px; /* Padding for the link */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgb(11, 132, 122); /* Main color for the button */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+.logout-link:hover {
+    background-color: rgb(8, 108, 100); /* Darker shade on hover */
+}

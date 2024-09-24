@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Registration Form</h2>
+    
         <form id="myForm">
 
             <label>First Name</label>
@@ -23,40 +23,43 @@
 
 
             <label >Birth Date</label>
-            <input type="text" id="birthDate"  >
+            <input type="text" id="birthDate" oninput="check(this)" >
             <span class="errors" id="BD-error"></span>
 
 
             <label >Email</label>
-            <input type="text" id="email"  >
+            <input type="text" id="email" oninput="check(this)" >
             <span class="errors" id="email-error"></span>
             
 
             <label>Confirm Email</label>
-            <input type="text" id="confirmEmail"  >
+            <input type="text" id="confirmEmail" oninput="emailConfirmation()" >
             <span class="errors" id="email-conf-error"></span>
           
           
             <label >Password</label>
-            <input type="text" id="password"  >
+            <input type="text" id="password" oninput="check(this)" >
             <span class="errors" id="pass-error"></span>
             
           
             <label>Confirm Password</label>
-            <input type="text" id="confirmPassword"   >
+            <input type="text" id="confirmPassword"  oninput="passConfirmation()" >
             <span class="errors" id="pass-conf-error"></span>
 
             
             <label >Phone Number</label>
-            <input type="tel" id="phone" >
+            <input type="tel" id="phone" oninput="check(this)">
             <span class="errors" id="num-error"></span>
+            <p class="message">Already have an account? <a href="login.html">Login here</a></p>
 
 
             <input type="submit" onclick="storeData()">
-
             
         </form>
     </div>
+
+    
+    
 
     <script src="script.js"></script>
 

@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:
+            <input type="text" id="name" >
+        </label>
+        <label for="email">Email:
+            <input type="text" id="email" >
+        </label>
+        <label for="phone">Mobile:
+            <input type="text" id="phone" >
+        </label>
+        <input type="submit" id="send" value="Click On Me to Print" onclick="saveData()">
+
+<br>
+<br>
+    </form>
+
+        <span style="background-color: green;" id="enteredName"></span>
+        <span style="background-color: red;" id="enteredEmail"></span>
+        <span style="background-color: yellow;" id="enteredPhone"></span>
+
+        <table border="1" id="userTabel">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+            </tr>  
+        </table>
+    <script>
+    
+        let users =[];
+        function saveData() {
+            
+        
+            event.preventDefault(); 
+      
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+
+            document.getElementById("enteredName").innerHTML= name;
+            document.getElementById("enteredEmail").innerHTML= email;
+            document.getElementById("enteredPhone").innerHTML= phone;
+
+           let newUser = {
+            Name: name,
+            Email: email,
+            Phone:phone,
+           }
+
+           users.push(JSON.stringify(newUser));
+
+           localStorage.setItem("users", users);
+
+
+            let newRow = document.createElement("tr");
+         
+            let nameCell = document.createElement("td");
+            nameCell.innerText = name; 
+
+            let emailCell = document.createElement("td");
+            emailCell.innerText = email; 
+
+            let phoneCell = document.createElement("td");
+            phoneCell.innerText = phone; 
+
+            newRow.appendChild(nameCell);
+            newRow.appendChild(emailCell);
+            newRow.appendChild(phoneCell);
+
+            document.getElementById("userTabel").appendChild(newRow);
+
+
+
+        }
+    </script>
+</body>
+</html>
